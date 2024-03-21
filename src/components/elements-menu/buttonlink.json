@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_menu_buttonlinks",
+  "info": {
+    "displayName": "buttonlink"
+  },
+  "options": {},
+  "attributes": {
+    "lable": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
