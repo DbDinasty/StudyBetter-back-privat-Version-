@@ -27,11 +27,24 @@ export interface ElementsMenuDropdown extends Schema.Component {
   };
 }
 
+export interface MetaElemMetaData extends Schema.Component {
+  collectionName: 'components_meta_elem_meta_data';
+  info: {
+    displayName: 'metaData';
+  };
+  attributes: {
+    header: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required & Attribute.Unique;
+    image: Attribute.Media & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'elements-menu.buttonlink': ElementsMenuButtonlink;
       'elements-menu.dropdown': ElementsMenuDropdown;
+      'meta-elem.meta-data': MetaElemMetaData;
     }
   }
 }

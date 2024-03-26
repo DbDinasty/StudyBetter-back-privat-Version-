@@ -17,6 +17,13 @@
       "components": [
         "elements-menu.dropdown"
       ]
+    },
+    "metaBody": {
+      "type": "dynamiczone",
+      "components": [
+        "meta-elem.meta-data"
+      ],
+      "required": true
     }
   }
 }
