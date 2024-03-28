@@ -24,6 +24,12 @@
         "meta-elem.meta-data"
       ],
       "required": true
+    },
+    "info": {
+      "displayName": "info",
+      "type": "component",
+      "repeatable": false,
+      "component": "infomation.info"
     }
   }
 }

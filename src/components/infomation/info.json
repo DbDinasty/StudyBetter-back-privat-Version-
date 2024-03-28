@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_infomation_infos",
+  "info": {
+    "displayName": "info"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

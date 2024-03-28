@@ -27,6 +27,17 @@ export interface ElementsMenuDropdown extends Schema.Component {
   };
 }
 
+export interface InfomationInfo extends Schema.Component {
+  collectionName: 'components_infomation_infos';
+  info: {
+    displayName: 'info';
+  };
+  attributes: {
+    header: Attribute.String & Attribute.Required & Attribute.Unique;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface MetaElemMetaData extends Schema.Component {
   collectionName: 'components_meta_elem_meta_data';
   info: {
@@ -44,6 +55,7 @@ declare module '@strapi/types' {
     export interface Components {
       'elements-menu.buttonlink': ElementsMenuButtonlink;
       'elements-menu.dropdown': ElementsMenuDropdown;
+      'infomation.info': InfomationInfo;
       'meta-elem.meta-data': MetaElemMetaData;
     }
   }

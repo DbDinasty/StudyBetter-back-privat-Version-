@@ -803,6 +803,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     menubody: Attribute.DynamicZone<['elements-menu.dropdown']>;
     metaBody: Attribute.DynamicZone<['meta-elem.meta-data']> &
       Attribute.Required;
+    info: Attribute.Component<'infomation.info'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
