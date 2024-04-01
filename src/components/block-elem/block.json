@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_block_elem_blocks",
+  "info": {
+    "displayName": "block",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements-menu.buttonlink"
+    },
+    "topic": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

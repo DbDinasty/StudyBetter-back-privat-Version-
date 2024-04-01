@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_answer_elem_answers",
+  "info": {
+    "displayName": "question",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question_text": {
+      "type": "text",
+      "unique": true,
+      "required": true
+    },
+    "question_num": {
+      "type": "integer"
+    },
+    "answer": {
+      "type": "component",
+      "repeatable": true,
+      "component": "question-elem.answers"
+    }
+  }
+}

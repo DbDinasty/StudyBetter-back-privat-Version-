@@ -15,7 +15,7 @@
     "menubody": {
       "type": "dynamiczone",
       "components": [
-        "elements-menu.dropdown"
+        "elements-menu.buttonlink"
       ]
     },
     "metaBody": {
@@ -25,11 +25,11 @@
       ],
       "required": true
     },
-    "info": {
-      "displayName": "info",
-      "type": "component",
-      "repeatable": false,
-      "component": "infomation.info"
+    "blockBody": {
+      "type": "dynamiczone",
+      "components": [
+        "block-elem.block"
+      ]
     }
   }
 }

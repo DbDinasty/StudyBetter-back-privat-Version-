@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_pages",
+  "info": {
+    "singularName": "test-page",
+    "pluralName": "test-pages",
+    "displayName": "Test-page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "menubody": {
+      "type": "dynamiczone",
+      "components": [
+        "elements-menu.buttonlink"
+      ]
+    },
+    "testBody": {
+      "type": "dynamiczone",
+      "components": [
+        "question-elem.answer",
+        "question-elem.answers"
+      ]
+    }
+  }
+}

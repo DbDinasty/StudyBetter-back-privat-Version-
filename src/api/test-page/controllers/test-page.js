@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * section controller
+ * test-page controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::section.section');
+module.exports = createCoreController('api::test-page.test-page');

@@ -800,10 +800,10 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    menubody: Attribute.DynamicZone<['elements-menu.dropdown']>;
+    menubody: Attribute.DynamicZone<['elements-menu.buttonlink']>;
     metaBody: Attribute.DynamicZone<['meta-elem.meta-data']> &
       Attribute.Required;
-    info: Attribute.Component<'infomation.info'>;
+    blockBody: Attribute.DynamicZone<['block-elem.block']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -815,6 +815,36 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLecturePageLecturePage extends Schema.CollectionType {
+  collectionName: 'lecture_pages';
+  info: {
+    singularName: 'lecture-page';
+    pluralName: 'lecture-pages';
+    displayName: 'Lecture-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::lecture-page.lecture-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::lecture-page.lecture-page',
       'oneToOne',
       'admin::user'
     > &
@@ -852,29 +882,33 @@ export interface ApiMetaDataMetaData extends Schema.CollectionType {
   };
 }
 
-export interface ApiSectionSection extends Schema.CollectionType {
-  collectionName: 'sections';
+export interface ApiTestPageTestPage extends Schema.CollectionType {
+  collectionName: 'test_pages';
   info: {
-    singularName: 'section';
-    pluralName: 'sections';
-    displayName: 'section';
+    singularName: 'test-page';
+    pluralName: 'test-pages';
+    displayName: 'Test-page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    buttonlink: Attribute.Component<'elements-menu.buttonlink', true>;
+    menubody: Attribute.DynamicZone<['elements-menu.buttonlink']>;
+    testBody: Attribute.DynamicZone<
+      ['question-elem.answer', 'question-elem.answers']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::section.section',
+      'api::test-page.test-page',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::section.section',
+      'api::test-page.test-page',
       'oneToOne',
       'admin::user'
     > &
@@ -901,8 +935,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::lecture-page.lecture-page': ApiLecturePageLecturePage;
       'api::meta-data.meta-data': ApiMetaDataMetaData;
-      'api::section.section': ApiSectionSection;
+      'api::test-page.test-page': ApiTestPageTestPage;
     }
   }
 }
