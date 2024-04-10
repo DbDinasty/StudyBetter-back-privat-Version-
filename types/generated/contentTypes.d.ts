@@ -804,6 +804,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     metaBody: Attribute.DynamicZone<['meta-elem.meta-data']> &
       Attribute.Required;
     blockBody: Attribute.DynamicZone<['block-elem.block']>;
+    header: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -845,36 +846,6 @@ export interface ApiLecturePageLecturePage extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::lecture-page.lecture-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMetaDataMetaData extends Schema.CollectionType {
-  collectionName: 'meta_datas';
-  info: {
-    singularName: 'meta-data';
-    pluralName: 'meta-datas';
-    displayName: 'meta-data';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    metaData: Attribute.Component<'meta-elem.meta-data'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::meta-data.meta-data',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::meta-data.meta-data',
       'oneToOne',
       'admin::user'
     > &
@@ -936,7 +907,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::lecture-page.lecture-page': ApiLecturePageLecturePage;
-      'api::meta-data.meta-data': ApiMetaDataMetaData;
       'api::test-page.test-page': ApiTestPageTestPage;
     }
   }

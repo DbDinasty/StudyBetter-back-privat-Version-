@@ -28,10 +28,11 @@ export interface MetaElemMetaData extends Schema.Component {
   collectionName: 'components_meta_elem_meta_data';
   info: {
     displayName: 'metaData';
+    description: '';
   };
   attributes: {
     header: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required & Attribute.Unique;
+    description: Attribute.Text & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
   };
 }
@@ -43,7 +44,7 @@ export interface QuestionElemAnswer extends Schema.Component {
     description: '';
   };
   attributes: {
-    question_text: Attribute.Text & Attribute.Required & Attribute.Unique;
+    question_text: Attribute.Text & Attribute.Required;
     question_num: Attribute.Integer;
     answer: Attribute.Component<'question-elem.answers', true>;
   };
