@@ -7,9 +7,9 @@ export interface BlockElemBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
+    title: Attribute.String;
     link: Attribute.Component<'elements-menu.buttonlink', true>;
-    topic: Attribute.Blocks & Attribute.Required;
+    topic: Attribute.Blocks;
   };
 }
 
@@ -31,9 +31,20 @@ export interface MetaElemMetaData extends Schema.Component {
     description: '';
   };
   attributes: {
-    header: Attribute.String & Attribute.Required;
+    header: Attribute.String;
     description: Attribute.Text & Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media;
+  };
+}
+
+export interface QuestionElemAnswerId extends Schema.Component {
+  collectionName: 'components_question_elem_answer_ids';
+  info: {
+    displayName: 'answer_id';
+    description: '';
+  };
+  attributes: {
+    answer_id: Attribute.String;
   };
 }
 
@@ -46,19 +57,7 @@ export interface QuestionElemAnswer extends Schema.Component {
   attributes: {
     question_text: Attribute.Text & Attribute.Required;
     question_num: Attribute.Integer;
-    answer: Attribute.Component<'question-elem.answers', true>;
-  };
-}
-
-export interface QuestionElemAnswers extends Schema.Component {
-  collectionName: 'components_question_elem_answers';
-  info: {
-    displayName: 'answers';
-    description: '';
-  };
-  attributes: {
-    text_of_answer: Attribute.Text & Attribute.Required;
-    isTrue: Attribute.Boolean & Attribute.DefaultTo<false>;
+    answer_id: Attribute.Component<'question-elem.answer-id', true>;
   };
 }
 
@@ -68,8 +67,8 @@ declare module '@strapi/types' {
       'block-elem.block': BlockElemBlock;
       'elements-menu.buttonlink': ElementsMenuButtonlink;
       'meta-elem.meta-data': MetaElemMetaData;
+      'question-elem.answer-id': QuestionElemAnswerId;
       'question-elem.answer': QuestionElemAnswer;
-      'question-elem.answers': QuestionElemAnswers;
     }
   }
 }

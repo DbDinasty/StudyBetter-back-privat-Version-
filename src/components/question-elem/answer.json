@@ -14,10 +14,10 @@
     "question_num": {
       "type": "integer"
     },
-    "answer": {
+    "answer_id": {
       "type": "component",
       "repeatable": true,
-      "component": "question-elem.answers"
+      "component": "question-elem.answer-id"
     }
   }
 }

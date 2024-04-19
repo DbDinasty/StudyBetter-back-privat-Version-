@@ -21,8 +21,7 @@
     "testBody": {
       "type": "dynamiczone",
       "components": [
-        "question-elem.answer",
-        "question-elem.answers"
+        "question-elem.answer"
       ]
     }
   }
