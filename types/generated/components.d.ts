@@ -45,6 +45,7 @@ export interface QuestionElemAnswerId extends Schema.Component {
   };
   attributes: {
     answer_id: Attribute.String;
+    text_answer: Attribute.Text;
   };
 }
 

@@ -8,6 +8,9 @@
   "attributes": {
     "answer_id": {
       "type": "string"
+    },
+    "text_answer": {
+      "type": "text"
     }
   }
 }
