@@ -14,7 +14,7 @@
     "question_num": {
       "type": "integer"
     },
-    "answer_id": {
+    "answers": {
       "type": "component",
       "repeatable": true,
       "component": "question-elem.answer-id"

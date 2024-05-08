@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_question_elem_u_questions",
+  "info": {
+    "displayName": "UQuestion"
+  },
+  "options": {},
+  "attributes": {
+    "user_text": {
+      "type": "string",
+      "maxLength": 150,
+      "required": true
+    },
+    "num_question": {
+      "required": true,
+      "type": "integer"
+    },
+    "gptAnswer": {
+      "displayName": "gptAnswer",
+      "type": "component",
+      "repeatable": true,
+      "component": "question-elem.gpt-answer"
+    }
+  }
+}

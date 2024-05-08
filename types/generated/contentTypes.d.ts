@@ -820,6 +820,41 @@ export interface ApiAnswerAnswer extends Schema.CollectionType {
   };
 }
 
+export interface ApiGptAnswerGptAnswer extends Schema.CollectionType {
+  collectionName: 'gpt_answers';
+  info: {
+    singularName: 'gpt-answer';
+    pluralName: 'gpt-answers';
+    displayName: 'gptAnswer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    gpttext: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 150;
+      }>;
+    Uqustion_Id: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gpt-answer.gpt-answer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gpt-answer.gpt-answer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomePageHomePage extends Schema.SingleType {
   collectionName: 'home_pages';
   info: {
@@ -936,6 +971,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::answer.answer': ApiAnswerAnswer;
+      'api::gpt-answer.gpt-answer': ApiGptAnswerGptAnswer;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::lecture-page.lecture-page': ApiLecturePageLecturePage;
       'api::test-page.test-page': ApiTestPageTestPage;

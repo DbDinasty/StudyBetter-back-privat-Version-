@@ -40,7 +40,7 @@ export interface MetaElemMetaData extends Schema.Component {
 export interface QuestionElemAnswerId extends Schema.Component {
   collectionName: 'components_question_elem_answer_ids';
   info: {
-    displayName: 'answer_id';
+    displayName: 'Answers';
     description: '';
   };
   attributes: {
@@ -58,7 +58,33 @@ export interface QuestionElemAnswer extends Schema.Component {
   attributes: {
     question_text: Attribute.Text & Attribute.Required;
     question_num: Attribute.Integer;
-    answer_id: Attribute.Component<'question-elem.answer-id', true>;
+    answers: Attribute.Component<'question-elem.answer-id', true>;
+  };
+}
+
+export interface QuestionElemGptAnswer extends Schema.Component {
+  collectionName: 'components_question_elem_gpt_answers';
+  info: {
+    displayName: 'gptAnswer';
+  };
+  attributes: {
+    gptAnswID: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface QuestionElemUQuestion extends Schema.Component {
+  collectionName: 'components_question_elem_u_questions';
+  info: {
+    displayName: 'UQuestion';
+  };
+  attributes: {
+    user_text: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 150;
+      }>;
+    num_question: Attribute.Integer & Attribute.Required;
+    gptAnswer: Attribute.Component<'question-elem.gpt-answer', true>;
   };
 }
 
@@ -70,6 +96,8 @@ declare module '@strapi/types' {
       'meta-elem.meta-data': MetaElemMetaData;
       'question-elem.answer-id': QuestionElemAnswerId;
       'question-elem.answer': QuestionElemAnswer;
+      'question-elem.gpt-answer': QuestionElemGptAnswer;
+      'question-elem.u-question': QuestionElemUQuestion;
     }
   }
 }

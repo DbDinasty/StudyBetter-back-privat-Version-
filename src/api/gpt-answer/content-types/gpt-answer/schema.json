@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gpt_answers",
+  "info": {
+    "singularName": "gpt-answer",
+    "pluralName": "gpt-answers",
+    "displayName": "gptAnswer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "gpttext": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "Uqustion_Id": {
+      "type": "string"
+    }
+  }
+}
